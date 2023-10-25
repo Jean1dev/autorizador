@@ -1,0 +1,10 @@
+package org.autorizador.violations;
+
+public enum ViolationDefinition {
+    ACCOUNT_NOT_INITIALIZED,
+    CARD_NOT_ACTIVE,
+    DOUBLED_TRANSACTION,
+    HIGH_FREQUENCY_SMALL_INTERVAL,
+    INSUFFICIENT_LIMIT,
+    ACCOUNT_ALREADY_CREATED
+}
