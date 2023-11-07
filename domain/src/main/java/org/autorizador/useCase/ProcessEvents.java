@@ -54,7 +54,7 @@ public class ProcessEvents {
                     LocalDateTime transactionEventTime = transactionEvent.getTime();
                     LocalDateTime domainEventTime = domainEvent.getTime();
                     Duration between = Duration.between(domainEventTime, transactionEventTime);
-                    return between.toMinutes() > 1;
+                    return between.toMinutes() == 0;
                 }).forEach(transactionEvent -> violations.add(buildFromEnum(ViolationDefinition.DOUBLED_TRANSACTION)));
 
         transactionEvents
