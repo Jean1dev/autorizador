@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "org.sonarqube" version "4.4.1.3373"
 }
 
 group = 'org.autorizador'
@@ -20,4 +21,12 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+sonar {
+  properties {
+    property "sonar.projectKey", "Jean1dev_autorizador"
+    property "sonar.organization", "personal-projects-jean"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
 }
