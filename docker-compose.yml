@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  rabbitMQ:
+    image: rabbitmq:3-management
+    hostname: "rabbit1"
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+      RABBITMQ_DEFAULT_USER: "autorizador"
+      RABBITMQ_DEFAULT_PASS: "autorizador_pass"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    container_name: rabbitmq-autorizador
+    volumes:
+      - "./enabled_plugins:/data/rabbitmq/enabled_plugins"
+

@@ -1,0 +1,39 @@
+amqp:
+  admin:
+    auto-create: true
+  host: localhost
+  vhost: /
+  port: 5672
+  username: autorizador
+  password: autorizador_pass
+
+  queues:
+    account-created:
+      exchange: autorizador.events
+      routing-key: account.created
+      queue: account.created.queue
+
+    transaction-event:
+      exchange: autorizador.events
+      routing-key: transaction.created
+      queue: transaction.created.queue
+
+
+server:
+  port: {$PORT:8080}
+  servlet:
+    context-path: /api
+
+  undertow:
+    threads:
+      worker: 64 # Generally this should be reasonably high, at least 10 per CPU core: https://undertow.io/undertow-docs/undertow-docs-2.1.0/index.html#listeners-2
+      io: 4 # One IO thread per CPU core is a reasonable default: https://undertow.io/undertow-docs/undertow-docs-2.1.0/index.html#listeners-2
+
+spring:
+  rabbitmq:
+    dynamic: ${amqp.admin.auto-create}
+    host: ${amqp.host}
+    port: ${amqp.port}
+    username: ${amqp.username}
+    password: ${amqp.password}
+    virtual-host: ${amqp.vhost}
