@@ -33,6 +33,7 @@ jobs:
       with:
         arguments: build
         build-root-directory: domain/
+        gradle-version: 8.5
 
   scan:
     needs: build
