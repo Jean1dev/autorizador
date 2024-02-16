@@ -9,6 +9,14 @@ repositories {
     mavenCentral()
 }
 
-jacoco {
-    toolVersion = "0.8.8"
+sourceCompatibility = JavaVersion.VERSION_21
+targetCompatibility = JavaVersion.VERSION_21
+
+java {
+    sourceCompatibility
+    targetCompatibility
 }
+
+//jacoco {
+//    toolVersion = "0.8.8"
+//}
