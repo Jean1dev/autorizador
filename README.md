@@ -1,6 +1,9 @@
 # autorizador
 repositorio para a serie de videos sobre clean archtecture e DDD
 
+## :information_source: Videos no Youtube
+[Playlist](https://www.youtube.com/playlist?list=PLl-Um_Xc4KnMPd5iB_ixeYTCw-eHLmG_k)
+
 ## :information_source: Objetivo
 Criar um projeto que atenda as necessidades de negocio utilizando as estrategias de DDD e clean archtecture
 
