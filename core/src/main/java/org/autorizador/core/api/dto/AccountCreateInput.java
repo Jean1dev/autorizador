@@ -1,4 +1,9 @@
 package org.autorizador.core.api.dto;
 
-public record AccountCreateInput() {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public record AccountCreateInput(
+        @JsonProperty("active-card") boolean activeCard,
+        @JsonProperty("available-limit") double availableLimit
+) {
 }
