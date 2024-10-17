@@ -1,7 +1,8 @@
 package org.autorizador.core.listener;
 
-import org.autorizador.account.AccountEvent;
+import org.autorizador.core.application.SaveAccountApplication;
 import org.autorizador.core.config.json.Json;
+import org.autorizador.core.listener.messages.AccountMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -12,12 +13,22 @@ import org.springframework.stereotype.Component;
 public class AccountCreatedListener {
 
     private static final Logger log = LoggerFactory.getLogger(AccountCreatedListener.class);
+    private final SaveAccountApplication saveAccountApplication;
+
+    public AccountCreatedListener(SaveAccountApplication saveAccountApplication) {
+        this.saveAccountApplication = saveAccountApplication;
+    }
 
     @RabbitListener(queues = "${amqp.queues.account-created.queue}")
     public void onEvent(@Payload final String body) {
-        var accountEvent = Json.readValue(body, AccountEvent.class);
-        log.info("Account created: {}", accountEvent);
+        try {
+            var accountEvent = Json.readValue(body, AccountMessage.class);
+            log.info("Account created: {}", accountEvent);
 
-
+            saveAccountApplication.saveAccount(accountEvent.activeCard(), accountEvent.availableLimit());
+        } catch (Exception e) {
+            log.error("Error processing account created event: {}", body, e);
+            // Handle the error appropriately, e.g., send to a dead-letter queue or log for manual intervention
+        }
     }
 }
