@@ -1,6 +1,6 @@
 package org.autorizador.core.api;
 
-import org.autorizador.core.E2ETests;
+import org.autorizador.core.ApiTests;
 import org.autorizador.core.api.dto.AccountCreateInput;
 import org.autorizador.core.api.dto.TransactionInput;
 import org.junit.jupiter.api.DisplayName;
@@ -11,7 +11,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-class TransactionApiTest extends E2ETests {
+class TransactionApiTest extends ApiTests {
 
     @Test
     @DisplayName("Deve criar uma transação")

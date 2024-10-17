@@ -12,6 +12,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class AccountCreatedListener {
 
+    public static final String ACCOUNT_LISTENER_ID = "ACCOUNT_LISTENER_ID";
+
     private static final Logger log = LoggerFactory.getLogger(AccountCreatedListener.class);
     private final SaveAccountApplication saveAccountApplication;
 
@@ -19,7 +21,7 @@ public class AccountCreatedListener {
         this.saveAccountApplication = saveAccountApplication;
     }
 
-    @RabbitListener(queues = "${amqp.queues.account-created.queue}")
+    @RabbitListener(id = ACCOUNT_LISTENER_ID,queues = "${amqp.queues.account-created.queue}")
     public void onEvent(@Payload final String body) {
         try {
             var accountEvent = Json.readValue(body, AccountMessage.class);
