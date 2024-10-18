@@ -11,10 +11,6 @@ dependencies {
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
 }
 
-test {
-    useJUnitPlatform()
-}
-
 sonar {
   properties {
     property "sonar.projectKey", "Jean1dev_autorizador"
