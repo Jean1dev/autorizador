@@ -8,7 +8,7 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 @Testcontainers
-public abstract class PostgresConfiguration {
+public abstract class PgTestConfiguration {
 
     @Container
     protected static PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer("postgres:alpine")
@@ -18,7 +18,8 @@ public abstract class PostgresConfiguration {
 
     @DynamicPropertySource
     static void pgProperties(DynamicPropertyRegistry registry) {
-        registry.add("postgres.host", postgreSQLContainer::getJdbcUrl);
+        registry.add("postgres.host", postgreSQLContainer::getHost);
+        registry.add("postgres.port", postgreSQLContainer::getFirstMappedPort);
         registry.add("postgres.user", postgreSQLContainer::getUsername);
         registry.add("postgres.password", postgreSQLContainer::getPassword);
         registry.add("postgres.database", postgreSQLContainer::getDatabaseName);

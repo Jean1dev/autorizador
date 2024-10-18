@@ -9,5 +9,5 @@ import org.springframework.test.context.aot.DisabledInAotMode;
 @ExtendWith(MockitoExtension.class)
 @DisabledInAotMode
 // https://stackoverflow.com/questions/77586355/after-upgrade-to-spring-boot-3-2-aot-failure-code-generation-does-not-support
-public abstract class ApplicationTests {
+public @interface ApplicationTests {
 }
