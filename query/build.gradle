@@ -1,0 +1,16 @@
+plugins {
+    id 'java-conventions'
+    id 'jacoco-report-aggregation'
+    id 'application'
+    id 'org.springframework.boot' version '3.3.4'
+    id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.graalvm.buildtools.native' version '0.9.28'
+}
+
+group = 'org.autorizador'
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation("org.springframework.boot:spring-boot-starter-data-elasticsearch")
+    implementation("org.springframework.boot:spring-boot-starter-graphql")
+}
