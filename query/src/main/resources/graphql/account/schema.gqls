@@ -1,0 +1,9 @@
+extend type Query {
+    account(id: ID!): Account
+}
+
+type Account {
+    id: ID!
+    account_limit: Float!
+    active: Boolean!
+}

@@ -1,0 +1,14 @@
+elasticsearch:
+  connect-timeout: 250
+  socket-timeout: 1_000
+  uris: http://localhost:9200
+  username: elastic
+  password: elastic
+
+spring:
+  elasticsearch:
+    uris: ${elasticsearch.uris}
+    username: ${elasticsearch.username}
+    password: ${elasticsearch.password}
+    connect-timeout: ${elasticsearch.connect-timeout}
+    socket-timeout: ${elasticsearch.socket-timeout}
