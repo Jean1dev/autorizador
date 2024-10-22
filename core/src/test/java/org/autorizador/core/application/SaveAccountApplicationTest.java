@@ -12,8 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-@ApplicationTests
-class SaveAccountApplicationTest {
+class SaveAccountApplicationTest extends ApplicationTests {
 
     @InjectMocks
     private SaveAccountApplication saveAccountApplication;
