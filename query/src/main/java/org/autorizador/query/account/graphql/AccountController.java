@@ -14,7 +14,7 @@ public class AccountController {
     }
 
     @QueryMapping
-    public GqlAccount get(@Argument final String id) {
+    public GqlAccount account(@Argument final String id) {
         return repository.findById(id)
                 .map(GqlAccount::toGqlAccount)
                 .orElse(null);

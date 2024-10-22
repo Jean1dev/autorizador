@@ -6,6 +6,10 @@ elasticsearch:
   password: elastic
 
 spring:
+  graphql:
+    graphiql:
+      enabled: true
+
   elasticsearch:
     uris: ${elasticsearch.uris}
     username: ${elasticsearch.username}
