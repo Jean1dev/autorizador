@@ -1,4 +1,9 @@
 package org.autorizador.core.api.dto;
 
-public record TransactionInput() {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public record TransactionInput(
+        @JsonProperty("merchant" ) String merchant,
+        @JsonProperty("amount" ) double amount
+) {
 }
