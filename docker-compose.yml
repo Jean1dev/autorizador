@@ -1,6 +1,33 @@
 version: '3.4'
 
 services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
+    container_name: elk_container
+    volumes:
+      - /usr/share/elasticsearch/data
+    environment:
+      - "discovery.type=single-node"
+      - "bootstrap.memory_lock=true"
+      - "cluster.name=autorizador"
+      - "node.name=es01"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - '9200:9200'
+      - '9300:9300'
+
+  postgres:
+    container_name: postgres_container
+    image: postgres:alpine
+    environment:
+      POSTGRES_DB: "autorizador_core"
+      POSTGRES_USER: "core_user"
+      POSTGRES_PASSWORD: "core_user"
+    volumes:
+      - "/var/lib/postgresql/data"
+    ports:
+      - "5432:5432"
+
   rabbitMQ:
     image: rabbitmq:3-management
     hostname: "rabbit1"
