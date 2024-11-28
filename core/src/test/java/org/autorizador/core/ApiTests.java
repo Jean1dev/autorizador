@@ -6,13 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.aot.DisabledInAotMode;
 import org.springframework.test.web.servlet.MockMvc;
 
 @Tag("e2e")
 @AutoConfigureMockMvc
 @SpringBootTest(classes = Main.class)
 @ActiveProfiles("dev")
-public abstract class E2ETests {
+@DisabledInAotMode // https://stackoverflow.com/questions/77586355/after-upgrade-to-spring-boot-3-2-aot-failure-code-generation-does-not-support
+public abstract class ApiTests {
     @Autowired
     protected MockMvc mvc;
     @Autowired

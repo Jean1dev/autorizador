@@ -1,6 +1,7 @@
 package org.autorizador.core.commons.implementations;
 
 import org.autorizador.core.commons.EventService;
+import org.autorizador.core.config.json.Json;
 import org.springframework.amqp.rabbit.core.RabbitOperations;
 
 public class RabbitMQService implements EventService {
@@ -16,6 +17,6 @@ public class RabbitMQService implements EventService {
 
     @Override
     public void send(Object message) {
-        operations.convertAndSend(exchange, routingKey, message);
+        operations.convertAndSend(exchange, routingKey, Json.writeValueAsString(message));
     }
 }

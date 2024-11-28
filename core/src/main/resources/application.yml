@@ -1,3 +1,11 @@
+postgres:
+  host: localhost
+  port: 5432
+  database: autorizador_core
+  user: core_user
+  password: core_user
+  show-sql: false
+
 amqp:
   admin:
     auto-create: true
@@ -20,7 +28,7 @@ amqp:
 
 
 server:
-  port: {$PORT:8080}
+  port: { $PORT:8080 }
 
   undertow:
     threads:
@@ -35,3 +43,26 @@ spring:
     username: ${amqp.username}
     password: ${amqp.password}
     virtual-host: ${amqp.vhost}
+
+  flyway:
+    clean-disabled: false
+    clean-on-validation-error: false
+    locations: classpath:db/migration
+    table: schema_history
+
+  jpa:
+    show-sql: ${postgres.show-sql}
+    hibernate:
+      ddl-auto: none
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  datasource:
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 3
+
+    platform: postgres
+    url: jdbc:postgresql://${postgres.host}:${postgres.port}/${postgres.database}
+    username: ${postgres.user}
+    password: ${postgres.password}
+    driverClassName: org.postgresql.Driver
