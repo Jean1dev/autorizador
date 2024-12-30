@@ -1,9 +1,10 @@
 extend type Query {
     account(id: ID!): Account
+      accounts: [Account]
 }
 
 type Account {
     id: ID!
-    account_limit: Float!
-    active: Boolean!
+    account_limit: Float
+    active: Boolean
 }

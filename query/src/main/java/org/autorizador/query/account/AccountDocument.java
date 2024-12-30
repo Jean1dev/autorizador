@@ -6,16 +6,16 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
-@Document(indexName = "account")
+@Document(indexName = "pg.test.public.account_event")
 public class AccountDocument {
 
     @Id
     private String id;
 
-    @Field(name = "account_limit", type = FieldType.Double)
+    @Field(name = "available_limit", type = FieldType.Double)
     private Double accountLimit;
 
-    @Field(name = "account_active", type = FieldType.Boolean)
+    @Field(name = "active_card", type = FieldType.Boolean)
     private Boolean active;
 
     public AccountDocument(String id, Double accountLimit, Boolean active) {
