@@ -1,6 +1,6 @@
 extend type Query {
     account(id: ID!): Account
-      accounts: [Account]
+     accounts: [Account]
 }
 
 type Account {
