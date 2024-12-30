@@ -4,7 +4,7 @@ import org.autorizador.query.account.AccountDocument;
 
 public record GqlAccount(
         String id,
-        Double accountLimit,
+        Double account_limit,
         Boolean active
 ) {
 
