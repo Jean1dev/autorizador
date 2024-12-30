@@ -1,4 +1,5 @@
 rootProject.name = 'autorizador'
 include 'domain'
 include 'core'
+include 'query'
 

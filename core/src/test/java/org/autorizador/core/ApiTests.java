@@ -14,7 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 @SpringBootTest(classes = Main.class)
 @ActiveProfiles("dev")
 @DisabledInAotMode // https://stackoverflow.com/questions/77586355/after-upgrade-to-spring-boot-3-2-aot-failure-code-generation-does-not-support
-public abstract class ApiTests {
+public abstract class ApiTests extends PgTestConfiguration {
     @Autowired
     protected MockMvc mvc;
     @Autowired
