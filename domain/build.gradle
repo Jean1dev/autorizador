@@ -1,7 +1,7 @@
 plugins {
     id 'java-library'
     id 'java-conventions'
-    id "org.sonarqube" version "4.4.1.3373"
+    id "org.sonarqube" version "6.2.0.5505"
 }
 
 group = 'org.autorizador'
@@ -15,6 +15,6 @@ sonar {
   properties {
     property "sonar.projectKey", "Jean1dev_autorizador"
     property "sonar.organization", "personal-projects-jean"
-    property "sonar.host.url", "https://sonarcloud.io"
+    property "sonar.scanner.skipJreProvisioning", "true"
   }
 }

@@ -1,8 +1,8 @@
-FROM ghcr.io/graalvm/graalvm-community:21 AS build
+FROM ghcr.io/graalvm/graalvm-community:25 AS build
 
 USER root
 
-RUN microdnf install findutils
+RUN microdnf install findutils || (microdnf install -y findutils)
 
 WORKDIR /code
 
