@@ -53,7 +53,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
       - name: Gradle Build and analyze
-        run: ./gradlew :domain:build :domain:sonar --info
+        run: ./gradlew :domain:build :domain:sonar -Dsonar.token="$SONAR_TOKEN" --info
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

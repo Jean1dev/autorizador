@@ -15,7 +15,6 @@ sonar {
   properties {
     property "sonar.projectKey", "Jean1dev_autorizador"
     property "sonar.organization", "personal-projects-jean"
-    property "sonar.host.url", "https://sonarcloud.io"
     property "sonar.scanner.skipJreProvisioning", "true"
   }
 }
