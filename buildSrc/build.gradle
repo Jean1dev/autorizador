@@ -2,5 +2,8 @@ plugins {
     id("groovy-gradle-plugin")
 }
 
-sourceCompatibility = JavaVersion.VERSION_21
-targetCompatibility = JavaVersion.VERSION_21
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
